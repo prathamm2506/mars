@@ -89,6 +89,46 @@
     </div>
     </div>
 
+    <!-- form for date -->
+     <div class="dateform">
+      <h1>Curiosity'<span class="spanred">s</span> Gram</h1>
+        <p>
+          Select a date to view images from that day. 
+        </p>
+        <div class="selects">
+          <input type="date" name="" id="date-input" class="date" />
+          <button type="button" class="button2" id="go-button">Submit</button>
+        </div>
+        <!-- <hr> -->
+     </div>
+
+     <!-- gallery -->
+     <div class="imggrid">
+      <div class="btn-container" id="myBtnContainer">
+        <button class="btn active" id="all">ALL</button>
+        <button class="btn" id="FHAZ">FHAZ</button>
+        <button class="btn" id="RHAZ">RHAZ</button>
+        <button class="btn" id="NAVCAM">NAVCAM</button>
+        <button class="btn" id="MAST">MAST</button>
+        <button class="btn" id="CHEMCAM">CHEMCAM</button>
+        <button class="btn" id="MAHLI">MAHLI</button>
+        <button class="btn" id="MARDI">MARDI</button>
+      </div>
+
+      <div id="image-container" class="row"></div>
+    </div>
+
+    <div id="loading-spinner" style="display: none; text-align: center; padding: 20px; color: #fff;">
+      <p>Loading...</p>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" style="display: none; position: fixed; top: 0; left: 0; width: 80%; margin: 0 auto; height: 100%; justify-content: space-between; align-items: center;">
+      <div style="position: relative;">
+        <span id="close-modal" style="position: absolute; top: 10px; right: 10px; font-size: 30px; color: white; cursor: pointer;">&times;</span>
+        <img id="modal-image" src="" alt="Mars photo" style="max-width: 90%; max-height: 90%;">
+      </div>
+    </div>
 
 
 
@@ -115,28 +155,8 @@
 
 
 
-  <script>
-    function updateMarsTimer() {
-        const launchDate = new Date('2012-05-26T00:00:00Z');
-        const now = new Date();
-        const diff = now - launchDate;
 
-        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-        const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
-        const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        document.getElementById('years').textContent = years + " " + " :";
-        document.getElementById('months').textContent = months + " " + " :";
-        document.getElementById('days').textContent = days + " " + " :";
-        document.getElementById('hours').textContent = hours + " " + " :";
-        document.getElementById('minutes').textContent = minutes + " " + " :";
-        document.getElementById('seconds').textContent = seconds;
-    }
-
-    setInterval(updateMarsTimer, 1000);
-</script>
+  <script src="trial.js"></script>
   </body>
 </html>
