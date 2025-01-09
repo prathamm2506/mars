@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="trial.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <div class="header">
+      <div class="overlay"></div>
+      <nav>
+        <h1>Ma<span class="spanred">r</span>s</h1>
+      </nav>
+      <div class="extradiv">
+        <div class="headertext">
+          <small>Mars Science Laboratory</small>
+          <h1>Cu<span class="spanred">r</span>iosity Rove<span class="spanred">r</span></h1>
+          <p>
+            The Mars Science Laboratory mission's Curiosity rover landed in
+            Mars' Gale Crater the evening of August 5, 2012, PDT (morning of
+            August 6 EDT), using a series of complicated landing maneuvers never
+            before attempted.
+          </p>
+          <button>Explore Mission </button>
+        </div>
+        <div class="headerimg">
+        <img src="2.webp" alt="rover" />
+      </div>
+      </div>
+    </div>
+
+    <!-- timer -->
+    <div class="mars-timer">
+      <div class="details">
+          <div>
+              <span>TYPE</span>
+              Rover
+          </div>
+          <div>
+              <span>TARGET</span>
+              Mars
+          </div>
+          <div>
+              <span>STATUS</span>
+              Current
+          </div>
+          <div>
+              <span>LAUNCH DATE</span>
+              Nov. 26, 2011
+          </div>
+      </div>
+      <div class="timer-heading">TIME ON MARS</div>
+      <div class="timer" id="timer">
+        <div class="datadata"><span id="years">0</span><div>YRS</div></div>
+        <div class="datadata"><span id="months">0</span><div>MOS</div></div>
+        <div class="datadata"><span id="days">0</span><div>DAYS</div></div>
+        <div class="datadata"><span id="hours">0</span><div>HRS</div></div>
+        <div class="datadata"><span id="minutes">0</span><div>MINS</div></div>
+        <div class="datadata"><span id="seconds">0</span><div>SECS</div></div>
+    </div>
+  </div>
+
+
+  <script>
+    function updateMarsTimer() {
+        const launchDate = new Date('2012-05-26T00:00:00Z');
+        const now = new Date();
+        const diff = now - launchDate;
+
+        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+        const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+        const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('years').textContent = years + " " + " :";
+        document.getElementById('months').textContent = months + " " + " :";
+        document.getElementById('days').textContent = days + " " + " :";
+        document.getElementById('hours').textContent = hours + " " + " :";
+        document.getElementById('minutes').textContent = minutes + " " + " :";
+        document.getElementById('seconds').textContent = seconds;
+    }
+
+    setInterval(updateMarsTimer, 1000);
+</script>
+  </body>
+</html>

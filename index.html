@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mars Rover Image Viewer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <img src="/1.jpg" alt="img" />
+      <div class="overlay">
+        <h1>Explore Coworking Perfection</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+          numquam in! Maxime, sequi. Laudantium praesentium repellendus
+          accusamus officiis, asperiores nesciunt.
+        </p>
+        <div class="selects">
+          <input type="date" name="" id="date-input" class="date" />
+          <button type="button" class="button" id="go-button">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="h11">
+      <h1>Let's Explore Space Science</h1>
+    </div>
+
+    <div class="imggrid">
+      <div class="btn-container" id="myBtnContainer">
+        <button class="btn active" id="all">Show all</button>
+        <button class="btn" id="FHAZ">FHAZ</button>
+        <button class="btn" id="RHAZ">RHAZ</button>
+        <button class="btn" id="NAVCAM">NAVCAM</button>
+        <button class="btn" id="MAST">MAST</button>
+        <button class="btn" id="CHEMCAM">CHEMCAM</button>
+        <button class="btn" id="MAHLI">MAHLI</button>
+        <button class="btn" id="MARDI">MARDI</button>
+      </div>
+
+      <div id="image-container" class="row"></div>
+    </div>
+
+    <div id="loading-spinner" style="display: none; text-align: center; padding: 20px;">
+      <p>Loading...</p>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center;">
+      <div style="position: relative;">
+        <span id="close-modal" style="position: absolute; top: 10px; right: 10px; font-size: 30px; color: white; cursor: pointer;">&times;</span>
+        <img id="modal-image" src="" alt="Mars photo" style="max-width: 90%; max-height: 90%;">
+      </div>
+    </div>
+
+    <script>
+      const api_url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos";
+      const api_key = "RzpWKf57XPMh7spBdrRZUAa05djtDNtNGfEccSzP";
+
+      const dateInput = document.getElementById("date-input");
+      const goButton = document.getElementById("go-button");
+      const imageContainer = document.getElementById("image-container");
+      const loadingSpinner = document.getElementById("loading-spinner");
+      const cameras = document.querySelectorAll(".btn-container .btn");
+      const imageModal = document.getElementById("image-modal");
+      const modalImage = document.getElementById("modal-image");
+      const closeModal = document.getElementById("close-modal");
+
+      let photos = [];
+
+      goButton.addEventListener("click", () => {
+        const selectedDate = dateInput.value;
+        if (!selectedDate) {
+          alert("Please select a date");
+          return;
+        }
+        fetchImages(selectedDate);
+      });
+
+      cameras.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          cameras.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          if (photos.length === 0) {
+            alert("No images available. Please fetch images first by selecting a date.");
+            return;
+          }
+
+          const selectedCamera = btn.id;
+          displayImages(selectedCamera);
+        });
+      });
+
+      function fetchImages(date) {
+        const url = `${api_url}?api_key=${api_key}&earth_date=${date}`;
+        loadingSpinner.style.display = "block";
+
+        fetch(url)
+          .then((res) => {
+            if (!res.ok) throw new Error(`HTTP error. Status: ${res.status}`);
+            return res.json();
+          })
+          .then((data) => {
+            if (data.photos.length === 0) {
+              alert("No images found for the selected date.");
+              return;
+            }
+            photos = data.photos;
+            alert("Images fetched successfully!");
+          })
+          .catch((err) => {
+            console.error(err);
+            alert("Failed to fetch images. Please try again.");
+          })
+          .finally(() => {
+            loadingSpinner.style.display = "none";
+          });
+      }
+
+      function displayImages(camera) {
+        const filteredPhotos = camera === "all" ? photos : photos.filter((photo) => photo.camera.name === camera);
+
+        imageContainer.innerHTML = "";
+
+        if (filteredPhotos.length === 0) {
+          imageContainer.innerHTML = `<p>No images found for the camera "${camera}".</p>`;
+          return;
+        }
+
+        filteredPhotos.forEach((photo) => {
+          const col = document.createElement("div");
+          col.className = "column show";
+          col.innerHTML = `
+            <div class="content">
+              <img src="${photo.img_src}" alt="Mars photo" style="width:100%" class="image-clickable">
+              <div class="details">
+                <p>ID: ${photo.id}</p>
+                <p>Sol: ${photo.sol}</p>
+                <p>Earth Date: ${photo.earth_date}</p>
+                <p>Rover: ${photo.rover.name}</p>
+                <p>Camera: ${photo.camera.full_name}</p>
+              </div>
+            </div>
+          `;
+          imageContainer.appendChild(col);
+        });
+
+        document.querySelectorAll(".image-clickable").forEach((img) => {
+          img.addEventListener("click", (e) => {
+            modalImage.src = e.target.src;
+            imageModal.style.display = "flex";
+          });
+        });
+      }
+
+      closeModal.addEventListener("click", () => {
+        imageModal.style.display = "none";
+      });
+
+      window.addEventListener("click", (e) => {
+        if (e.target === imageModal) {
+          imageModal.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
