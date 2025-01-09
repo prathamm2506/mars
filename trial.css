@@ -82,6 +82,7 @@ body{
 .headertext p{
     font-size: 1.2rem;
     font-family: var(--funnel);
+    line-height: 1.5;
 }
 
 .headertext button{
@@ -165,4 +166,70 @@ body{
     display: block;
     color: #c00;
     font-weight: bold;
+}
+
+.buffer{
+    height: 30vh;
+}
+
+.about{
+    width: 80%;
+    margin: 2rem auto;
+    color: #fff;
+    padding: 2rem;
+}
+
+.about h1{
+    font-size: 3rem;
+    font-family: var(--funnel);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.about p{
+    font-size: 1.2rem;
+    font-family: var(--funnel);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.instruments{
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.instruments h1{
+    font-size: 3rem;
+    font-family: var(--funnel);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.instrudiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.instruments button{
+    font-size: 1.8rem;
+    background-color: transparent;
+    border: 2px solid #c00;
+    color: #fff;
+    padding: 10px 20px;
+    width: max-content;
+    outline: none;
+    margin-top: 1rem;
+    transition: .5s all ease;
+    font-family: var(--funnel);
+}
+
+.instruments button:hover{
+    background-color: #fff;
+    color: #000;
 }
