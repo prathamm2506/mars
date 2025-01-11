@@ -43,6 +43,7 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   gap: 2rem;
@@ -312,7 +313,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: max-content;
+  flex-wrap: wrap;
   margin: 0 auto;
   gap: 1rem;
 }
@@ -426,7 +427,6 @@ body {
   width: 100%;
   height: 100%;
   display: none;
-  background: rgba(165, 165, 165, 0.325);
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -472,4 +472,65 @@ body {
   font-family: var(--funnel);
   text-align: center;
   margin-top: 1rem;
+}
+
+@media (max-width:1080px) {
+  .extradiv{
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin-top: 4rem;
+    gap: 0;
+  }
+  .extradiv>div{
+    width: 100%;
+  }
+  .headertext{
+    align-items: center;
+    padding-left: 0;
+  }
+  .mars-timer{
+    top: 100%;
+    right: 5%;
+    width: 90%;
+  }
+  .about{
+    width: 90%;
+  }
+  .about p{
+    text-align: justify;
+  }
+  .instruments{
+    width: 90%;
+  }
+  .instrudiv{
+    justify-content: center;
+  }
+  .dateform{
+    width: 90%;
+  }
+  .selects{
+    flex-direction: column;
+    width: 90%;
+  }
+  .selects .date{
+    width: 100%;
+  }
+  .selects .button2{
+    width: 100%;
+  }
+  .imggrid{
+    width: 90%;
+  }
+  .maingallery{
+    width: 90%;
+  }
+  .gsubdiv{
+    flex-direction: column;
+  }
+  .imgtext{
+    width: 100%;
+  }
+  .foot{
+    width: 90%;
+  }
 }
