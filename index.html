@@ -3,33 +3,132 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mars Rover Image Viewer</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- header -->
     <div class="header">
-      <img src="/1.jpg" alt="img" />
-      <div class="overlay">
-        <h1>Explore Coworking Perfection</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
-          numquam in! Maxime, sequi. Laudantium praesentium repellendus
-          accusamus officiis, asperiores nesciunt.
-        </p>
-        <div class="selects">
-          <input type="date" name="" id="date-input" class="date" />
-          <button type="button" class="button" id="go-button">Submit</button>
+      <div class="overlay"></div>
+      <nav>
+        <h1>Ma<span class="spanred">r</span>s</h1>
+      </nav>
+      <div class="extradiv">
+        <div class="headertext">
+          <small>Mars Science Laboratory</small>
+          <h1>Cu<span class="spanred">r</span>iosity Rove<span class="spanred">r</span></h1>
+          <p>
+            The Mars Science Laboratory mission's Curiosity rover landed in
+            Mars' Gale Crater the evening of August 5, 2012, PDT (morning of
+            August 6 EDT), using a series of complicated landing maneuvers never
+            before attempted.
+          </p>
+          <button>Explore Mission </button>
         </div>
+        <div class="headerimg">
+        <img src="2.webp" alt="rover" />
+      </div>
       </div>
     </div>
 
-    <div class="h11">
-      <h1>Let's Explore Space Science</h1>
+    <!-- Preloader (hidden initially) -->
+    <div>
+      <div class="loader-5" id="preloader">
+        <svg
+          viewBox="0 0 187.3 93.7"
+          height="200px"
+          width="300px"
+          class="svgbox"
+        >
+          <defs>
+            <linearGradient y2="0%" x2="100%" y1="0%" x1="0%" id="gradient">
+              <stop stop-color="#c00" offset="0%"></stop>
+              <stop stop-color="white" offset="100%"></stop>
+            </linearGradient>
+          </defs>
+    
+          <path
+            stroke="url(#gradient)"
+            d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z"
+          ></path>
+        </svg>
+      </div>
     </div>
 
-    <div class="imggrid">
+    <!-- timer -->
+    <div class="mars-timer">
+      <div class="details">
+          <div>
+              <span>TYPE</span>
+              Rover
+          </div>
+          <div>
+              <span>TARGET</span>
+              Mars
+          </div>
+          <div>
+              <span>STATUS</span>
+              Current
+          </div>
+          <div>
+              <span>LAUNCH DATE</span>
+              Nov. 26, 2011
+          </div>
+      </div>
+      <div class="timer-heading">TIME ON MARS</div>
+      <div class="timer" id="timer">
+        <div class="datadata"><span id="years">0</span><div>YRS</div></div>
+        <div class="datadata"><span id="months">0</span><div>MOS</div></div>
+        <div class="datadata"><span id="days">0</span><div>DAYS</div></div>
+        <div class="datadata"><span id="hours">0</span><div>HRS</div></div>
+        <div class="datadata"><span id="minutes">0</span><div>MINS</div></div>
+        <div class="datadata"><span id="seconds">0</span><div>SECS</div></div>
+    </div>
+  </div>
+
+  <!-- buffer -->
+   <div class="buffer"></div>
+
+  <!-- about -->
+   <div class="about">
+    <h1>A<span class="spanred">b</span>out the <span class="spanred">M</span>ission</h1>
+    <p>The Mars Science Laboratory mission's Curiosity rover landed in Mars' Gale Crater the evening of August 5, 2012 PDT (morning of August 6 EDT) using a series of complicated landing maneuvers never before attempted. The specialized landing sequence, which employed a giant parachute, a jet-controlled descent vehicle and a bungee-like apparatus called a "sky crane," was devised because tested landing techniques used during previous rover missions could not safely accommodate the much larger and heavier rover.</p>
+    <p>Curiosity's mission is to determine whether the Red Planet ever was habitable to microbial life. The rover, which is about the size of a MINI Cooper, is equipped with 17 cameras and a robotic arm containing a suite of specialized laboratory-like tools and instruments.</p>
+   </div>
+
+   <!-- instruments -->
+    <div class="instruments">
+      <h1>Instr<span class="spanred">u</span>ments</h1>
+      <div class="instrudiv">
+      <button>Sample Analysis at Mars (SAM)</button>
+      <button>Chemistry and Camera (ChemCam)</button>
+      <button>Alpha Particle X-ray Spectrometer (APXS)</button>
+      <button>Chemistry and Mineralogy (CheMin)</button>
+      <button>Dynamic Albedo of Neutrons (DAN)</button>
+      <button>Mars Descent Imager (MARDI)</button>
+      <button>Mars Hand Lens Imager (MAHLI)</button>
+      <button>Mast Camera (Mastcam)</button>
+      <button>Radiation Assessment Detector (RAD)</button>
+      <button>Rover Environmental Monitoring Station (REMS)</button>
+    </div>
+    </div>
+
+    <!-- form for date -->
+     <div class="dateform">
+      <h1>Curiosity'<span class="spanred">s</span> Gram</h1>
+        <p>
+          Select a date to view images from that day. 
+        </p>
+        <div class="selects">
+          <input type="date" name="" id="date-input" class="date" />
+          <button type="button" class="button2" id="go-button">Submit</button>
+        </div>
+     </div>
+
+     <!-- filter and form -->
+     <div class="imggrid">
       <div class="btn-container" id="myBtnContainer">
-        <button class="btn active" id="all">Show all</button>
+        <button class="btn active" id="all">ALL</button>
         <button class="btn" id="FHAZ">FHAZ</button>
         <button class="btn" id="RHAZ">RHAZ</button>
         <button class="btn" id="NAVCAM">NAVCAM</button>
@@ -42,128 +141,42 @@
       <div id="image-container" class="row"></div>
     </div>
 
-    <div id="loading-spinner" style="display: none; text-align: center; padding: 20px;">
-      <p>Loading...</p>
-    </div>
-
-    <!-- Image Modal -->
-    <div id="image-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center;">
-      <div style="position: relative;">
-        <span id="close-modal" style="position: absolute; top: 10px; right: 10px; font-size: 30px; color: white; cursor: pointer;">&times;</span>
-        <img id="modal-image" src="" alt="Mars photo" style="max-width: 90%; max-height: 90%;">
+    <!-- gallery -->
+     <div class="maingallery">
+      <div class="gsubdiv">
+        <div class="imgtext">
+        <img src="https://cdn3.pixelcut.app/7/20/uncrop_hero_bdf08a8ca6.jpg" alt="">
+        <p>Image 1</p>
+        <p>Image 1</p>
+        <p>Image 1</p>
+        <p>Image 1</p>
+        <p>Random text</p>
       </div>
-    </div>
+      <div class="imgtext">
+        <img src="https://cdn3.pixelcut.app/7/20/uncrop_hero_bdf08a8ca6.jpg" alt="">
+        <p>Image 1</p>
+        <p>Image 1</p>
+        <p>Image 1</p>
+        <p>Image 1</p>
+        <p>Random text</p>
+      </div>
+      <div class="imgtext">
+        <img src="https://cdn3.pixelcut.app/7/20/uncrop_hero_bdf08a8ca6.jpg" alt="">
+        <p>Image 1</p>
+        <p>Image 1</p>
+        <p>Image 1</p>
+        <p>Image 1</p>
+        <p>Random text</p>
+      </div>
+      </div>
+     </div>
 
-    <script>
-      const api_url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos";
-      const api_key = "RzpWKf57XPMh7spBdrRZUAa05djtDNtNGfEccSzP";
+     <!-- footer -->
+      <div class="foot">
+        <hr>
+        <p>For educational purpose only.</p>
+      </div>
 
-      const dateInput = document.getElementById("date-input");
-      const goButton = document.getElementById("go-button");
-      const imageContainer = document.getElementById("image-container");
-      const loadingSpinner = document.getElementById("loading-spinner");
-      const cameras = document.querySelectorAll(".btn-container .btn");
-      const imageModal = document.getElementById("image-modal");
-      const modalImage = document.getElementById("modal-image");
-      const closeModal = document.getElementById("close-modal");
-
-      let photos = [];
-
-      goButton.addEventListener("click", () => {
-        const selectedDate = dateInput.value;
-        if (!selectedDate) {
-          alert("Please select a date");
-          return;
-        }
-        fetchImages(selectedDate);
-      });
-
-      cameras.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          cameras.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-
-          if (photos.length === 0) {
-            alert("No images available. Please fetch images first by selecting a date.");
-            return;
-          }
-
-          const selectedCamera = btn.id;
-          displayImages(selectedCamera);
-        });
-      });
-
-      function fetchImages(date) {
-        const url = `${api_url}?api_key=${api_key}&earth_date=${date}`;
-        loadingSpinner.style.display = "block";
-
-        fetch(url)
-          .then((res) => {
-            if (!res.ok) throw new Error(`HTTP error. Status: ${res.status}`);
-            return res.json();
-          })
-          .then((data) => {
-            if (data.photos.length === 0) {
-              alert("No images found for the selected date.");
-              return;
-            }
-            photos = data.photos;
-            alert("Images fetched successfully!");
-          })
-          .catch((err) => {
-            console.error(err);
-            alert("Failed to fetch images. Please try again.");
-          })
-          .finally(() => {
-            loadingSpinner.style.display = "none";
-          });
-      }
-
-      function displayImages(camera) {
-        const filteredPhotos = camera === "all" ? photos : photos.filter((photo) => photo.camera.name === camera);
-
-        imageContainer.innerHTML = "";
-
-        if (filteredPhotos.length === 0) {
-          imageContainer.innerHTML = `<p>No images found for the camera "${camera}".</p>`;
-          return;
-        }
-
-        filteredPhotos.forEach((photo) => {
-          const col = document.createElement("div");
-          col.className = "column show";
-          col.innerHTML = `
-            <div class="content">
-              <img src="${photo.img_src}" alt="Mars photo" style="width:100%" class="image-clickable">
-              <div class="details">
-                <p>ID: ${photo.id}</p>
-                <p>Sol: ${photo.sol}</p>
-                <p>Earth Date: ${photo.earth_date}</p>
-                <p>Rover: ${photo.rover.name}</p>
-                <p>Camera: ${photo.camera.full_name}</p>
-              </div>
-            </div>
-          `;
-          imageContainer.appendChild(col);
-        });
-
-        document.querySelectorAll(".image-clickable").forEach((img) => {
-          img.addEventListener("click", (e) => {
-            modalImage.src = e.target.src;
-            imageModal.style.display = "flex";
-          });
-        });
-      }
-
-      closeModal.addEventListener("click", () => {
-        imageModal.style.display = "none";
-      });
-
-      window.addEventListener("click", (e) => {
-        if (e.target === imageModal) {
-          imageModal.style.display = "none";
-        }
-      });
-    </script>
+  <script src="index.js"></script>
   </body>
 </html>
