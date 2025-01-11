@@ -10,11 +10,11 @@ function updateMarsTimer() {
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
   
-    document.getElementById('years').textContent = years + " " + " :";
-    document.getElementById('months').textContent = months + " " + " :";
-    document.getElementById('days').textContent = days + " " + " :";
-    document.getElementById('hours').textContent = hours + " " + " :";
-    document.getElementById('minutes').textContent = minutes + " " + " :";
+    document.getElementById('years').textContent = years + " ";
+    document.getElementById('months').textContent = months + " ";
+    document.getElementById('days').textContent = days + " ";
+    document.getElementById('hours').textContent = hours + " ";
+    document.getElementById('minutes').textContent = minutes + " ";
     document.getElementById('seconds').textContent = seconds;
   }
   

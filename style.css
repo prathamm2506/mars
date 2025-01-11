@@ -127,8 +127,14 @@ body {
 .timer {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 2rem;
   margin: 20px 0;
+}
+
+.timerextra{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 }
 
 .timer span {
@@ -475,6 +481,17 @@ body {
 }
 
 @media (max-width:1080px) {
+  .header{
+    height: 100%;
+    padding: 1rem;
+  }
+  .header h1{
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .header p{
+    text-align: justify;
+  }
   .extradiv{
     flex-direction: column-reverse;
     justify-content: center;
@@ -489,28 +506,34 @@ body {
     padding-left: 0;
   }
   .mars-timer{
-    top: 100%;
-    right: 5%;
-    width: 90%;
+    position: relative;
+    margin: 2rem auto;
+    width: 95%;
+  }
+  .buffer{
+    height: 0vh;
   }
   .about{
-    width: 90%;
+    width: 95%;
+    padding: 1rem;
   }
   .about p{
     text-align: justify;
   }
   .instruments{
-    width: 90%;
+    width: 95%;
+    padding: 1rem;
   }
   .instrudiv{
     justify-content: center;
   }
   .dateform{
-    width: 90%;
+    width: 95%;
+    padding: 1rem;
   }
   .selects{
     flex-direction: column;
-    width: 90%;
+    width: 95%;
   }
   .selects .date{
     width: 100%;
@@ -519,10 +542,11 @@ body {
     width: 100%;
   }
   .imggrid{
-    width: 90%;
+    width: 95%;
   }
   .maingallery{
-    width: 90%;
+    width: 95%;
+    padding: 1rem;
   }
   .gsubdiv{
     flex-direction: column;
@@ -531,6 +555,21 @@ body {
     width: 100%;
   }
   .foot{
-    width: 90%;
+    width: 95%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width:760px) {
+  .details{
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .details div{
+    text-align: center;
+  }
+  .timerextra{
+    flex-direction: column;
   }
 }
